@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useUser } from '../components/UserContext';
 
 const Login = () => {
-    const { user, isLoading } = useUser();
+    const { user, isLoading, login } = useUser();
     const navigate = useNavigate();
 
     useEffect(() => {
