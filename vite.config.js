@@ -4,8 +4,8 @@ import tailwindcss from '@tailwindcss/vite'
 import basicSsl from '@vitejs/plugin-basic-ssl'
 
 // https://vite.dev/config/
-export default defineConfig({
-  base: '/trax-demo/', // Fix for GitHub Pages blank screen
+export default defineConfig(({ command }) => ({
+  base: command === 'build' ? '/trax-demo/' : '/', // Fix: '/' for local dev, repo-name for GitHub Pages
   server: {
     port: 5173,
     host: 'localhost', // Explicitly use IPv4 loopback
@@ -25,4 +25,4 @@ export default defineConfig({
       }
     }
   }
-})
+}))
